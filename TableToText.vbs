@@ -9,7 +9,6 @@ Function TableToText(Table As Range) As String
 '   Input: 'Table' is the Range object to turn into a plain text table
 '   Output: 'TableToText' is a string that contains the plain text table
 '
-    Dim nbColumns As Integer, nbRows As Integer
     Dim i As Integer, j As Integer, s As Integer
     Dim max As Integer, difference As Integer
     Dim arr As Variant '(1 To Table.Rows.Count, 1 To Table.Columns.Count)
@@ -19,9 +18,7 @@ Function TableToText(Table As Range) As String
     
     MaxNbCh = 130 ' defines the maximum number of characters for a line
     
-    nbColumns = Table.Columns.Count
-    nbRows = Table.Rows.Count
-    MaxNbCh = MaxNbCh / nbColumns
+    MaxNbCh = MaxNbCh / Table.Columns.Count
     '' cutting too long cells
     i = LBound(arr, 1)
 
